@@ -1,0 +1,12 @@
+{
+    "presets": [
+      "react-native"
+    ],
+    "plugins": [
+      ["react-native-platform-specific-extensions", {
+        "extensions": ["css", "scss", "sass"],
+              }],[
+        "react-native-classname-to-style"
+        ]
+    ]
+  }

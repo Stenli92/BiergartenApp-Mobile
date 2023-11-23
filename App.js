@@ -1,33 +1,18 @@
-// import {useNavigate}  from 'react-router-dom';
-import { StatusBar } from 'expo-status-bar';
-import {ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-web';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text } from 'react-native';
+import WelcomeScreen from './app/assets/screens/WelcomeScreen';
+import BeergardenMap from './app/assets/screens/BeergardenMap';
 
 export default function App() {
-
-  function handleRedirect(){
-  }
-
   return (
-    <View style={styles.container} >
-      <ImageBackground source={require('/assets/img/home-background.svg')} style={styles.image} resizeMode="cover">
-      <Button  onClick={handleRedirect}>Click for Beergarden App</Button>
-        <StatusBar style="auto" />
-      </ImageBackground>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Home' component={WelcomeScreen}  options={{ title: 'Home' }}/>
+        <Stack.Screen name='BeergardenMap' component={BeergardenMap}  options={{ title: 'Beergarden Map' }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-  }
-});
+const Stack = createNativeStackNavigator();
