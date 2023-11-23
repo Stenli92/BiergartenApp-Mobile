@@ -4,7 +4,7 @@ import {ImageBackground, StyleSheet, Button, View } from 'react-native';
 function WelcomeScreen({navigation}) {
     return (
         <View style={styles.container} >
-            <ImageBackground source={require('/app/assets/img/home-background.svg')} style={styles.image} resizeMode="cover">
+            <ImageBackground source={require('/app/assets/img/home-mobile.svg')} style={styles.image} resizeMode="cover">
 
                     <Button
                       title="Go to BeergardenMap"
