@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text } from 'react-native';
-import WelcomeScreen from './app/assets/screens/WelcomeScreen';
-import BeergardenMap from './app/assets/screens/BeergardenMap';
+import WelcomeScreen from './screens/WelcomeScreen';
+import BeergardenMap from './screens/BeergardenMap';
 
 export default function App() {
   return (
