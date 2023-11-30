@@ -1,8 +1,10 @@
 import  {useState} from 'react'
 import {StyleSheet, TextInput, View , TouchableOpacity , Image} from 'react-native';
-import { Button } from 'react-native-web';
 
-function SearchBar() {
+function SearchBar({mobileWidth}) {
+
+    const style = handleStyles(mobileWidth);
+
 
     const [text, setText] = useState('');
     return (
@@ -14,51 +16,56 @@ function SearchBar() {
                 value={text}
             />
             <View style={style.buttonsContainer}>
-                <TouchableOpacity>
-                    <Image style={style.icon} source={require('../assets/search.svg')} />
+                <TouchableOpacity >
+                    <Image style={style.icon} source={require('../assets/img/search.svg')} />
                 </TouchableOpacity>
-                <TouchableOpacity  style={style.icon} onPress={() => setText('')} >
-                    <Image style={style.icon} source={require('../assets/x.svg')} />
+                <TouchableOpacity onPress={() => setText('')} >
+                    <Image style={style.icon} source={require('../assets/img/x.svg')} />
                 </TouchableOpacity>
             </View>
         </View>
     );
 }
 
+function handleStyles(mobileWidth){
 
-const style = StyleSheet.create({
+    return StyleSheet.create({
 
-    buttonsContainer: {
-        display: 'flex',
-        margin: '1vw',
-        justifyContent: 'space-between',
-        width: '98vw',
-        position: 'absolute',
-    },
+        buttonsContainer: {
+            display: 'flex',
+            flexDirection:'row',
+            margin: '1vw',
+            justifyContent: 'space-between',
+            width: mobileWidth ? '98vw' : '78vw',
+            position: 'absolute',
+        },
+        
+        container: {
+            zIndex: 1,
+            display: 'flex',
+            width: mobileWidth ? "100%" : '80%',
+            position: 'absolute',
+            backgroundColor: 'white',
+            border: 'none',
+            flex: 1,
+            right: 0
+        },
+        input: {
+            fontSize: 18,
+            color: 'black',
+            padding: '1.5rem',
+            marginLeft: '2.4rem',
+            width: '70%',
+            zIndex: 9,
     
-    container: {
-        zIndex: 1,
-        display: 'flex',
-        width: '100%',
-        position: 'absolute',
-        backgroundColor: 'white',
-        border: 'none',
-        alignContent: 'center',
-        justifyContent: 'center'
-    },
-    input: {
-        // fontSize: 18,
-        color: 'black',
-        padding: '1.5rem',
-        marginLeft: '2rem',
-        width: '80%',
-        zIndex: 9,
+        },
+        icon: {
+            height: '27px',
+            width: '27px',
+            zIndex: 10,
+            margin: '1rem'
+        }
+    });
+}
 
-    },
-    icon: {
-        height: '27px',
-        width: '27px',
-        zIndex: 10,
-    }
-});
 export default SearchBar;

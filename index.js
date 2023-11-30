@@ -1,3 +1,5 @@
+import 'text-encoding-polyfill'
+import Joi from '@hapi/joi'
 import { AppRegistry, Platform } from 'react-native';
 import App from './App';
 

@@ -1,28 +1,43 @@
-import React from 'react';
-import {ImageBackground, StyleSheet, Button, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {ImageBackground, StyleSheet, View , useWindowDimensions, TouchableOpacity } from 'react-native';
 
 function WelcomeScreen({navigation}) {
+  const {width , height} = useWindowDimensions();
+  const styles = useStyles(width , height);
+
+  const [image , setImage] = useState()
+
+  useEffect(() => {
+    if(width < 768){
+      setImage(require('../assets/img/home-mobile.svg'));
+    }else{
+      setImage(require('../assets/img/home-background.svg'));
+    }
+  } , [width])
+
     return (
         <View style={styles.container} >
-            <ImageBackground source={require('../assets/home-mobile.svg')} style={styles.image} resizeMode="cover">
-
-                    <Button
-                      title="Go to BeergardenMap"
-                      onPress={() => navigation.navigate('BeergardenMap')}/>
+            <ImageBackground source={image} style={styles.image} resizeMode="cover">
+              <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('BeergardenMap')}>
+              </TouchableOpacity>
             </ImageBackground>
         </View>
     );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-  }
-});
+
+function useStyles(width , height) {
+
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      
+    },
+    image: {
+      flex: 1,
+      justifyContent: 'center',
+    }
+  });
+}
 
 export default WelcomeScreen;
