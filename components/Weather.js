@@ -50,7 +50,7 @@ function Weather({mobileWidth}) {
                             <WeatherWeekDay
                                 temp={element}
                                 day={weekdays[index]}
-                                index={index}
+                                key={index}
                             />
                             );
                         }else if(mobileWidth && index < 3){
@@ -91,7 +91,7 @@ function handleStyles(mobileWidth){
         },
         title: {
             color: '#FFF',
-            fontSize: '40px',
+            fontSize: '30px',
             fontStyle: 'normal',
             fontWeight: 700,
             lineHeight: 'normal'
@@ -107,13 +107,12 @@ function handleStyles(mobileWidth){
             justifyContent: 'space-evenly',
             alignItems:'center',
             gap: '2rem',
-            width: '50%'
-
+            width: 'fit-content',
+            marginLeft: '4.5rem'
         },
         city : {
             color: '#FFF',
-            padding: '4.5rem',
-            fontSize:'32px'
+            fontSize:'32px',
         },
         temp : {
             color: '#FFF',

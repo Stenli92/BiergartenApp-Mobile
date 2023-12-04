@@ -73,9 +73,11 @@ function useStyles(mobileWidth) {
             fontSize: '18px',
             width: mobileWidth ? '100%' : '75%',
             padding: '.7rem',
+            paddingTop: 0,
             height: '200px',
             borderRadius: '8px',
-            backgroundColor : 'white'
+            backgroundColor : 'white',
+            lineHeight : '18px'
         },
         label : {
             color: '#FFF',

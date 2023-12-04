@@ -1,7 +1,7 @@
 import React from 'react';
 import {View , Text , StyleSheet , Image} from 'react-native';
 
-function WeatherWeekDay({day , temp ,index}) {
+function WeatherWeekDay({day , temp}) {
 
     const gsDayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
@@ -11,7 +11,7 @@ function WeatherWeekDay({day , temp ,index}) {
     const styles = handleStyles()
 
     return (
-        <View style={styles.container} key={index}>
+        <View style={styles.container} >
             <Text style={styles.day}>{dayName}</Text>
             <Text style={styles.temp}>{temp.toFixed(0)}&#xb0;</Text>
         </View>

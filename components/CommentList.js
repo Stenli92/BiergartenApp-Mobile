@@ -12,7 +12,7 @@ function CommentList({mobileWidth}) {
         <View style={styles.container}>
             {comments?.map((comment) => {
                 return (
-                    <Comment comment={comment} />
+                    <Comment key={comment.id} comment={comment} mobileWidth={mobileWidth} />
                 );
             })}
         </View>
@@ -50,7 +50,7 @@ function useStyles(mobileWidth) {
             flexDirection: 'column',
             gap: '1rem',
             alignItems: 'flex-start',
-        },
+        }
     });
 }
 
