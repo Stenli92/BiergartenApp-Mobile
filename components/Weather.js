@@ -23,13 +23,12 @@ function Weather({mobileWidth}) {
     
       useEffect(() => {
         getWeather();
-      }, []);
+      }, [mobileWidth]);
 
     const  weekdays = data?.daily?.time;
     const temperature = data?.daily?.temperature_2m_max;
 
-    console.log(weekdays);
-    console.log(typeof temperature);
+    console.log(mobileWidth);
 
     return (
         <View style={styles.container}>
@@ -46,7 +45,7 @@ function Weather({mobileWidth}) {
             </View>
             <View style={styles.weekDayContainer}>
                     { temperature?.map((element, index) => {
-                        if (index >0 && index < 6) {
+                        if (!mobileWidth && index < 5) {
                             return (
                             <WeatherWeekDay
                                 temp={element}
@@ -54,6 +53,14 @@ function Weather({mobileWidth}) {
                                 index={index}
                             />
                             );
+                        }else if(mobileWidth && index < 3){
+                            return (
+                                <WeatherWeekDay
+                                    temp={element}
+                                    day={weekdays[index]}
+                                    index={index}
+                                />
+                                );
                         }
                     })}
             </View>

@@ -2,12 +2,15 @@ import React , {useState , useEffect} from 'react';
 import { View, StyleSheet , ImageBackground , useWindowDimensions} from 'react-native';
 import GardenDetails from '../components/GardenDetails';
 import Weather from '../components/Weather';
+import CommentsForm from '../components/CommentsForm';
+import CommentList from '../components/CommentList';
 
 function BiergardenDetails({route}) {
 
     const [image , setImage] = useState()
 
     const {width , height} = useWindowDimensions();
+    const mobileWidth = (width < 768);
     const styles = useStyles(width , height);
 
     const {title , id , distance} = route.params; 
@@ -24,7 +27,9 @@ function BiergardenDetails({route}) {
         <View style={styles.container}>
             <ImageBackground source={image} style={styles.image} resizeMode="cover">
                 <GardenDetails  title={title} id={id} distance={distance}/>
-                <Weather/>
+                <Weather mobileWidth={mobileWidth}/>
+                <CommentsForm mobileWidth={mobileWidth}></CommentsForm>
+                <CommentList mobileWidth={mobileWidth}></CommentList>
             </ImageBackground>
         </View>
     );
@@ -37,7 +42,14 @@ function useStyles(width , height) {
           flex: 1, 
         },
         image : {
-            height: '100vh',
+            flex: 1,
+            height: height,
+            width : width,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
         }
     });
 }

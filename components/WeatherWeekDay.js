@@ -11,9 +11,9 @@ function WeatherWeekDay({day , temp ,index}) {
     const styles = handleStyles()
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.day} key={index}>{dayName}</Text>
-            <Text style={styles.temp} key={index}>{temp.toFixed(0)}&#xb0;</Text>
+        <View style={styles.container} key={index}>
+            <Text style={styles.day}>{dayName}</Text>
+            <Text style={styles.temp}>{temp.toFixed(0)}&#xb0;</Text>
         </View>
     );
 }
@@ -32,11 +32,13 @@ function handleStyles(mobileWidth){
         },
         day : {
             fontSize: '26px',
-            color: "#FFF"
+            color: "#FFF",
+            whiteSpace: "nowrap"
         },
         temp: {
             color: "#FFF",
-            fontSize: '40px'
+            fontSize: '40px',
+            whiteSpace: "nowrap"
         }
     
     })}
