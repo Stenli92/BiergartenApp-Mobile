@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { View , StyleSheet , Text , Pressable} from 'react-native';
 
 
-const GardenDetails = ({title}) => {
+const GardenDetails = ({title }) => {
 
   const [isOpen , setIsOpen] = useState(false);
 
  
   
-  const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  const description = 'Lorem  ipsum dolor sit amet, consectetur rem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporrem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporrem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 
   return (
     <View style={styles.container}>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column', 
     gap: '1rem',
-    padding: '1rem',
+    padding: '4rem',
     marginTop: '2rem'
   },
   text: {
@@ -36,13 +36,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     display: '-webkit-box',
     fontSize: '24px',
-    lineHeight: '24px',
-
   },
   textHidden: {
     color: 'white',
     fontSize: '24px',
-    lineHeight: '24px',
   },
   title: {
     color: '#FFF',
@@ -50,7 +47,8 @@ const styles = StyleSheet.create({
     fontStyle: 'Source Sans Pro',
     fontWeight: 700,
     lineHeight: 'normal',
-    fontFamily: 'Source Sans Pro'
+    display:'flex',
+    alignItems: 'center'
   },
   buttonText : {
     display : 'flex',
